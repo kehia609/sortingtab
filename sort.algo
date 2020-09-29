@@ -1,0 +1,29 @@
+ALGORITHM sorted
+VAR
+    n,j,i,a : INTEGER;
+    tab : ARRAY_OF INTEGER;
+BEGIN
+    Write("enter the length of the tab")
+    Read(n)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Write("give the :",i+1," number")
+        Read(tab[i])
+    END_FOR
+    j:=0;
+    REPEAT
+    j:=j+1;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        IF (i>=1) THEN
+            IF (tab[i-1]>tab[i]) THEN
+                a:=tab[i]
+                tab[i]:=tab[i-1]
+                tab[i-1]:=a
+            END_IF
+        END_IF
+    END_FOR
+    UNTIL (j=n+1)
+    Write("your sorted tab")
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Write(tab[i])
+    END_FOR
+END
